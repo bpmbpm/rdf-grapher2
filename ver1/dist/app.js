@@ -810,6 +810,12 @@ function formatLabelWithWrap(label, maxLength, isBold = false) {
     }
     return result;
 }
+function getGitHubPagesBaseUrl(hostname, origin, pathname) {
+    Logging.entered('examples/core', 'getGitHubPagesBaseUrl');
+    if (hostname === 'bpmbpm.github.io')
+        return 'https://bpmbpm.github.io/rdf-grapher2/ver1/';
+    return origin + pathname;
+}
 // @ts-nocheck — DOM-слой использует проверенную разметку страницы и остаётся совместимым с исходным API.
 const BaseStyles = {
     literal: 'shape="box" style="filled" fillcolor="#ffffcc"',
@@ -2181,13 +2187,7 @@ function openInNewWindowGitHub() {
     const encodedRdf = encodeURIComponent(rdfInput);
     // Определяем базовый URL для GitHub Pages
     let baseUrl;
-    if (window.location.hostname === 'bpmbpm.github.io') {
-        baseUrl = 'https://bpmbpm.github.io/rdf-grapher/ver4p/';
-    }
-    else {
-        // Для локального тестирования используем текущий путь
-        baseUrl = window.location.origin + window.location.pathname;
-    }
+    baseUrl = getGitHubPagesBaseUrl(window.location.hostname, window.location.origin, window.location.pathname);
     // Формируем URL с данными в хеше (избегает ошибки URI Too Long)
     const hashParams = `rdf=${encodedRdf}&from=${fromFormat}&to=${outputFormat}&mode=${visualizationMode}`;
     const serviceUrl = `${baseUrl}#${hashParams}`;
@@ -2456,7 +2456,7 @@ function main() {
 }
 RdfGrapher.core = { getLocalName, getPrefixedName, escapeDotString, generateNodeId,
     generateVadNodeId, isNameOrLabelPredicate, escapeHtmlLabel, escapeHtml,
-    wrapTextByWords, formatLabelWithWrap, parseUrlParams };
+    wrapTextByWords, formatLabelWithWrap, getGitHubPagesBaseUrl, parseUrlParams };
 RdfGrapher.validation = { validateVAD, formatVADErrors };
 globalThis.RdfGrapher = RdfGrapher;
 if (typeof document !== 'undefined')

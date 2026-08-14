@@ -58,9 +58,9 @@ function main(): void {
         functionName: 'main', status: 'успех' });
 }
 
-RdfGrapher.core = { getLocalName, getPrefixedName, escapeDotString, generateNodeId,
-    generateVadNodeId, isNameOrLabelPredicate, escapeHtmlLabel, escapeHtml,
-    wrapTextByWords, formatLabelWithWrap, parseUrlParams };
+    RdfGrapher.core = { getLocalName, getPrefixedName, escapeDotString, generateNodeId,
+        generateVadNodeId, isNameOrLabelPredicate, escapeHtmlLabel, escapeHtml,
+        wrapTextByWords, formatLabelWithWrap, getGitHubPagesBaseUrl, parseUrlParams };
 RdfGrapher.validation = { validateVAD, formatVADErrors };
 (globalThis as any).RdfGrapher = RdfGrapher;
 if (typeof document !== 'undefined') document.addEventListener('DOMContentLoaded', main);

@@ -73,3 +73,10 @@ test('wrapTextByWords не теряет слова и соблюдает мяг�
     ['один два', 'три', 'четыре']
   );
 });
+
+test('GitHub Pages URL указывает на rdf-grapher2/ver1', () => {
+  assert.equal(
+    context.RdfGrapher.core.getGitHubPagesBaseUrl('bpmbpm.github.io', 'https://bpmbpm.github.io', '/rdf-grapher2/ver1/'),
+    'https://bpmbpm.github.io/rdf-grapher2/ver1/'
+  );
+});

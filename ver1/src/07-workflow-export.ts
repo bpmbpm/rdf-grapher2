@@ -297,12 +297,11 @@
 
             // Определяем базовый URL для GitHub Pages
             let baseUrl;
-            if (window.location.hostname === 'bpmbpm.github.io') {
-                baseUrl = 'https://bpmbpm.github.io/rdf-grapher/ver4p/';
-            } else {
-                // Для локального тестирования используем текущий путь
-                baseUrl = window.location.origin + window.location.pathname;
-            }
+            baseUrl = getGitHubPagesBaseUrl(
+                window.location.hostname,
+                window.location.origin,
+                window.location.pathname
+            );
 
             // Формируем URL с данными в хеше (избегает ошибки URI Too Long)
             const hashParams = `rdf=${encodedRdf}&from=${fromFormat}&to=${outputFormat}&mode=${visualizationMode}`;

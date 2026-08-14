@@ -365,3 +365,8 @@ ex:organizations {
             }
             return result;
         }
+
+        function getGitHubPagesBaseUrl(hostname: string, origin: string, pathname: string): string {
+            if (hostname === 'bpmbpm.github.io') return 'https://bpmbpm.github.io/rdf-grapher2/ver1/';
+            return origin + pathname;
+        }

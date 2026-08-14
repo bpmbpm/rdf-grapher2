@@ -11,7 +11,7 @@ const functionsByGroup = {
     'examples/core': ['loadExampleTurtle', 'loadExampleVAD', 'loadExampleNTriples', 'loadExampleNQuads',
         'loadExampleTriG', 'loadExample', 'getLocalName', 'getPrefixedName', 'escapeDotString',
         'generateNodeId', 'generateVadNodeId', 'isNameOrLabelPredicate', 'escapeHtmlLabel',
-        'escapeHtml', 'wrapTextByWords', 'formatLabelWithWrap'],
+        'escapeHtml', 'wrapTextByWords', 'formatLabelWithWrap', 'getGitHubPagesBaseUrl'],
     interface: ['getNodeStyle', 'getEdgeStyle', 'buildNodeTypesCache', 'applyZoom', 'zoomIn', 'zoomOut',
         'zoomReset', 'zoomFit', 'closePropertiesPanel', 'closeAllPropertiesPanels', 'getNodeProperties',
         'showNodeProperties', 'bringPanelToFront', 'startDragPanel', 'dragPanel', 'stopDragPanel',
